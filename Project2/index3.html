@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style3.css">
+    <title>空氣品質細懸浮微粒指標</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="detect-box radius-box style-secondary">
+            <div class="btn-detect" data-toggle="collapse" href="#collapseArea" aria-expanded="false" aria-controls="collapseArea">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="detect-box-title">
+                            <h3 class="title">
+                                新北地區空氣品質細懸浮微粒指標
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <p class="text-center small" id="LastUpdate">最後更新：</p>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                          
+                      </div> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" class="text-center btn-block color-primary">
+                          <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse in" id="collapseArea">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="small">請下拉選單選擇地區</p>
+                        <select name="districtName" id="" class="selectpicker">
+                                  <option value="">--</option>
+                              </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb--s">
+                        <div class="detect-box-content clearfix">
+                            <h4 class="title">
+                                <!-- 林園
+                                      <img class="pull-right" src="Content/images/icon/icon-faceSafe.png" alt="良好圖示"> -->
+                            </h4>
+                            <b>空氣品質指標(AQI)</b>
+                            <strong id="AQI"><!-- 20 / 良好 --></strong>
+                            <b class="mt--m">細懸浮微粒指標(PM2.5) </b>
+                            <strong id="FPMI"><!-- 1 / 低 --></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="http://taqm.epa.gov.tw/taqm/tw/default.aspx" target="_blank" class="btn btn-primary btn-block">詳細資料請按我</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="all.js"></script>
+</body>
+
+</html>

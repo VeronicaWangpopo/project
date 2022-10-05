@@ -46,9 +46,10 @@ function run() {
     const now = new Date();
     const min = now.getMinutes();
     const sec = now.getSeconds();
+    const msec = now.getMilliseconds();
 
-    console.log(`${min}:${sec}`);
-    if (min === 59 && sec >= 59) {
+    console.log(`${min}:${sec}:${msec}`);
+    if (min === 2 && sec >= 0 && msec >= 0) {
       callApi(urls);
       clearInterval(checkTime);
     }
@@ -56,13 +57,16 @@ function run() {
 }
 
 function callApi(urls) {
-  let api = null;
-  let index = 0;
-  api = setInterval(() => {
-    index++;
-    urls.map((url) => window.open(url));
-    if (index >= 8) {
-      clearInterval(api);
-    }
-  }, 250);
+  // let api = null;
+  // let index = 0;
+  // api = setInterval(() => {
+  // index++;
+  // const now = new Date();
+  // const time = `${now.getHours()}：${now.getMinutes()}：${now.getSeconds()}：${now.getMilliseconds()}`;
+  // console.log(`time = ${time}`);
+  urls.map((url) => window.open(url));
+  // if (index >= 8) {
+  //   clearInterval(api);
+  // }
+  // }, 250);
 }

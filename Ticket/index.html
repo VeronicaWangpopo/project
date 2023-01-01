@@ -16,6 +16,10 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./jquery-ui.min.js"></script>
+    <link href="./jquery-ui.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"
+      integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
     <title>搶票系統</title>
   </head>
 
@@ -28,14 +32,14 @@
       <div class="pb-3">現在時間：<span id="nowTime"></div>
       <div class="flex items-center pb-2 whitespace-nowrap w-50">
         <span class="pe-1">日期：</span>
-        <input type="text" class="form-control" id="dateInput" placeholder="2022/09/27">
+        <!-- <input type="text" class="form-control" id="dateInput" placeholder="2022/09/27"> -->
+        <input type="text" class="form-control w-[150px]" id="datepicker" autocomplete="off" />
       </div>
       <div class="flex items-center pb-4 whitespace-nowrap w-50">
         <div class="flex flex-col items-start">
           <span class="pe-1">時段：</span>
           <span class="text-xs">(可多選)</span>
         </div>
-        <!-- <input type="text" class="form-control" id="timeInput" placeholder="8"> -->
         <select class="form-select" multiple aria-label="multiple select" id="timeSelect">
           <option value="6">06:00~07:00</option>
           <option value="7">07:00~08:00</option>
@@ -54,8 +58,22 @@
           <option value="21">21:00~22:00</option>
         </select>
       </div>
+      <div class="flex items-center pb-4 whitespace-nowrap w-50">
+        <div class="flex flex-col items-start">
+          <span class="pe-1">場地：</span>
+          <span class="text-xs">(可多選)</span>
+        </div>
+        <select class="form-select min-h-[140px]" multiple aria-label="multiple select" id="placeSelect">
+          <option value="83" selected>場地一</option>
+          <option value="84">場地二</option>
+          <option value="85">場地三</option>
+          <option value="86">場地四</option>
+          <option value="87">場地五</option>
+          <option value="88" selected>場地六</option>
+        </select>
+      </div>
       <button type="button" id="active" class="btn btn-outline-primary" onclick="run()">搶票</button>
-      <span class="absolute bottom-2.5 right-2.5">Last Update: 2022.10.21</span>
+      <span class="absolute bottom-2.5 right-2.5">Last Update: 2023.01.01</span>
     </div>
   </body>
 

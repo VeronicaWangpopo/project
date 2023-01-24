@@ -4,13 +4,17 @@ setInterval(() => {
   $("#nowTime").text(time);
 }, 100);
 
-function openMyOrder() {
+function openMyOrderYmca() {
   window.open(
     "https://www.ymca.com.tw/xwt88.aspx?Module=member&files=orderx_mt"
   );
 }
+function openMyOrderCyc() {
+  window.open("https://scr.cyc.org.tw/tp13.aspx?Module=member&files=orderx_mt");
+}
 
 $(function () {
+  // Date
   $.datepicker.regional["it"] = {
     closeText: "關閉", // set a close button text
     currentText: "今天", // set today text
@@ -35,15 +39,43 @@ $(function () {
   $.datepicker.setDefaults($.datepicker.regional["it"]);
   $("#datepicker").datepicker();
   $("#datepicker").datepicker("setDate", "+10d");
+
+  // Local
+  const localSelect = $("#localSelect");
+  localSelect.change(() => {
+    const local = $(this).find(":selected").val();
+    const placeSelect = $("#placeSelect");
+    if (local === "ymca") {
+      placeSelect.html(`
+      <option value="83" selected>場地一</option>
+      <option value="84">場地二</option>
+      <option value="85">場地三</option>
+      <option value="86">場地四</option>
+      <option value="87">場地五</option>
+      <option value="88" selected>場地六</option>`);
+    } else {
+      placeSelect.html(`
+      <option value="1175">場地一</option>
+      <option value="1174">場地二</option>
+      <option value="1176">場地三</option>`);
+    }
+  });
 });
 
 function run() {
   const dateInput = $("#datepicker");
   const timeSelect = $("#timeSelect");
   const placeSelect = $("#placeSelect");
+  const localSelect = $("#localSelect");
   const date = dateInput.val();
   const time = timeSelect.val();
   const place = placeSelect.val();
+  const local = localSelect.val();
+  const domain =
+    local === "ymca"
+      ? "https://www.ymca.com.tw/xwt88.aspx"
+      : "https://scr.cyc.org.tw/tp13.aspx";
+
   let error = false;
 
   dateInput.removeClass("is-invalid");
@@ -76,7 +108,7 @@ function run() {
     .map((t) =>
       place.map(
         (p) =>
-          `https://www.ymca.com.tw/xwt88.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=${p}&QTime=${t}&PT=1&D=${date}`
+          `${domain}?module=net_booking&files=booking_place&StepFlag=25&QPid=${p}&QTime=${t}&PT=1&D=${date}`
       )
     )
     .flat();
@@ -85,6 +117,7 @@ function run() {
   $("#activeTitle").removeClass("d-none");
 
   let checkTime = null;
+
   checkTime = setInterval(() => {
     const now = new Date();
     const min = now.getMinutes();
@@ -107,6 +140,7 @@ function callApi(urls) {
   // const now = new Date();
   // const time = `${now.getHours()}：${now.getMinutes()}：${now.getSeconds()}：${now.getMilliseconds()}`;
   // console.log(`time = ${time}`);
+  // urls.map((url) => console.log(url));
   urls.map((url) => window.open(url));
   // if (index >= 8) {
   //   clearInterval(api);

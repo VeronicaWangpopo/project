@@ -24,10 +24,19 @@
   <body>
     <div class="flex items-center justify-center flex-col h-screen">
       <div class="alert alert-primary">請記得先登入</div>
-      <button class="btn btn-outline-success mb-8" onclick="openMyOrder()">我的訂單</button>
-
+      <div class="flex w-[150px] justify-content-around">
+        <button class="btn btn-outline-success mb-8" onclick="openMyOrderYmca()">泰山</button>
+        <button class="btn btn-outline-success mb-8" onclick="openMyOrderCyc()">桃園</button>
+      </div>
       <div id="activeTitle" class="h3 d-none">已啟動</div>
       <div class="pb-3">現在時間：<span id="nowTime"></div>
+      <div class="flex items-center pb-2 whitespace-nowrap w-50">
+        <span class="pe-1">地區：</span>
+        <select class="form-select" aria-label="multiple select" id="localSelect">
+          <option value="ymca" selected>泰山</option>
+          <option value="cyc">桃園</option>
+        </select>
+      </div>
       <div class="flex items-center pb-2 whitespace-nowrap w-50">
         <span class="pe-1">日期：</span>
         <!-- <input type="text" class="form-control" id="dateInput" placeholder="2022/09/27"> -->
@@ -52,6 +61,7 @@
           <option value="16">16:00~17:00</option>
           <option value="17">17:00~18:00</option>
           <option value="18">18:00~19:00</option>
+          <option value="19">19:00~20:00</option>
           <option value="20">20:00~21:00</option>
           <option value="21">21:00~22:00</option>
         </select>
@@ -71,7 +81,7 @@
         </select>
       </div>
       <button type="button" id="active" class="btn btn-outline-primary" onclick="run()">搶票</button>
-      <span class="absolute bottom-2.5 right-2.5">Last Update: 2023.01.01</span>
+      <span class="absolute bottom-2.5 right-2.5">Last Update: 2023.01.24</span>
     </div>
   </body>
 

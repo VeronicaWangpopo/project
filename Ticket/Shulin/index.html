@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+      </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="../jquery-ui.min.js"></script>
+    <link href="../jquery-ui.min.css" rel="stylesheet" />
+    <title>搶票系統</title>
+  </head>
+
+  <body>
+    <div class="flex items-center justify-center flex-col h-screen">
+      <div class="alert alert-primary">請記得先登入</div>
+      <button class="btn btn-outline-success mb-8" onclick="openMyOrderXuanen()">登入</button>
+      <!-- <div class="flex w-[150px] justify-content-around">
+        <button class="btn btn-outline-success mb-8" onclick="openMyOrderYmca()">泰山</button>
+        <button class="btn btn-outline-success mb-8" onclick="openMyOrderCyc()">桃園</button>
+      </div> -->
+      <div id="activeTitle" class="h3 d-none">已啟動</div>
+      <div class="pb-3">現在時間：<span id="nowTime"></div>
+      <div class="flex items-center pb-2 whitespace-nowrap w-50">
+        <span class="pe-1">地區：樹林</span>
+        <!-- <select class="form-select" aria-label="multiple select" id="localSelect">
+          <option value="ymca" selected>泰山</option>
+          <option value="cyc">桃園</option>
+        </select> -->
+      </div>
+      <div class="flex items-center pb-2 whitespace-nowrap w-50">
+        <span class="pe-1">日期：</span>
+        <!-- <input type="text" class="form-control" id="dateInput" placeholder="2022/09/27"> -->
+        <input type="text" class="form-control w-[150px]" id="datepicker" autocomplete="off" />
+      </div>
+      <div class="flex items-center pb-4 whitespace-nowrap w-50">
+        <div class="flex flex-col items-start">
+          <span class="pe-1">時段：</span>
+          <span class="text-xs">(可多選)</span>
+        </div>
+        <select class="form-select" multiple aria-label="multiple select" id="timeSelect">
+          <option value="6">06:00~07:00</option>
+          <option value="7">07:00~08:00</option>
+          <option value="8" selected>08:00~09:00</option>
+          <option value="9" selected>09:00~10:00</option>
+          <option value="10">10:00~11:00</option>
+          <option value="11">11:00~12:00</option>
+          <option value="12">12:00~13:00</option>
+          <option value="13">13:00~14:00</option>
+          <option value="14">14:00~15:00</option>
+          <option value="15">15:00~16:00</option>
+          <option value="16">16:00~17:00</option>
+          <option value="17">17:00~18:00</option>
+          <option value="18">18:00~19:00</option>
+          <option value="19">19:00~20:00</option>
+          <option value="20">20:00~21:00</option>
+          <option value="21">21:00~22:00</option>
+        </select>
+      </div>
+      <div class="flex items-center pb-4 whitespace-nowrap w-50">
+        <div class="flex flex-col items-start">
+          <span class="pe-1">場地：</span>
+          <span class="text-xs">(可多選)</span>
+        </div>
+        <select class="form-select min-h-[140px]" multiple aria-label="multiple select" id="placeSelect">
+          <option value="83" selected>場地一</option>
+          <option value="84">場地二</option>
+          <option value="85">場地三</option>
+          <option value="86">場地四</option>
+          <option value="87">場地五</option>
+          <option value="88" selected>場地六</option>
+        </select>
+      </div>
+      <button type="button" id="active" class="btn btn-outline-primary" onclick="run()">搶票</button>
+      <span class="absolute bottom-2.5 right-2.5">Last Update: 2023.01.24</span>
+    </div>
+  </body>
+
+</html>

@@ -125,7 +125,7 @@ function run() {
     const msec = now.getMilliseconds();
 
     console.log(`${min}:${sec}:${msec}`);
-    if (min === 00 && sec >= 0 && msec >= 0) {
+    if (min === 0 && sec >= 0 && msec >= 0) {
       callApi(urls);
       clearInterval(checkTime);
     }

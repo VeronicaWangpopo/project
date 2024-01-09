@@ -117,6 +117,7 @@ function run() {
   $("#activeTitle").removeClass("d-none");
 
   let checkTime = null;
+  let times = 0;
 
   checkTime = setInterval(() => {
     const now = new Date();
@@ -125,8 +126,17 @@ function run() {
     const msec = now.getMilliseconds();
 
     console.log(`${min}:${sec}:${msec}`);
+    // callApi(urls);
+    // clearInterval(checkTime);
+
     if (min === 0 && sec >= 0 && msec >= 0) {
-      callApi(urls);
+      callTime = setInterval(() => {
+        callApi(urls);
+        times = times + 1;
+        if (times >= 2) {
+          clearInterval(callTime);
+        }
+      }, 1000);
       clearInterval(checkTime);
     }
   });
@@ -140,7 +150,9 @@ function callApi(urls) {
   // const now = new Date();
   // const time = `${now.getHours()}：${now.getMinutes()}：${now.getSeconds()}：${now.getMilliseconds()}`;
   // console.log(`time = ${time}`);
-  // urls.map((url) => console.log(url));
+  // https://www.ymca.com.tw/xwt88.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=85&QTime=6&PT=1&D=2024/01/19
+  // https://www.ymca.com.tw/xwt88.aspx?module=net_booking&files=booking_place&StepFlag=25&QPid=1074&QTime=6&PT=1&D=2024/01/19
+  urls.map((url) => console.log(url));
   urls.map((url) => window.open(url));
   // if (index >= 8) {
   //   clearInterval(api);
